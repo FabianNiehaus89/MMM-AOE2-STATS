@@ -1,0 +1,12 @@
+{
+	"name": "MMM-AOE2-STATS",
+	"version": "0.1.0",
+	"description": "A MagicMirror2 module that displys Age of Empires Player stats from Aoe2.net",
+	"keywords": [
+		"magic mirror",
+		"AOE2",
+		"Age of Empire 2"
+	],
+	"author": "Fabian Niehaus",
+	"main": "MMM-AOE2-STATS.js"
+}

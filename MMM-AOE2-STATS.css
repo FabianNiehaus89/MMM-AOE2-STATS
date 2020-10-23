@@ -1,0 +1,12 @@
+.MMM-AOE2-STATS td {
+	padding-left: 6px;
+	padding-right: 6px;
+}
+
+.MMM-AOE2-STATS .header-row {
+	font-weight: bold;
+}
+
+.MMM-AOE2-STATS .stats-row {
+	color: #fff;
+}
