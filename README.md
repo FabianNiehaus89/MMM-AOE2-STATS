@@ -35,5 +35,5 @@ var config = {
 | `showTeamStats`      | *Optional* If <b>true</b> module will display the RM-Team stats otherwise the 1v1 stats if available.
 | `showGameWins`       | *Optional* If <b>true</b> module shows how many games player has won.
 | `showGameLosses`     | *Optional* If <b>true</b> module shows how many games player has loose.
-| `showTotalGames`     | *Optional* If <b>true</br> module shows how many games player has played.
+| `showTotalGames`     | *Optional* If <b>true</b> module shows how many games player has played.
 | `showWinPercentage`  | *Optional* If <b>true</b> module shows the percentage of won games. 
