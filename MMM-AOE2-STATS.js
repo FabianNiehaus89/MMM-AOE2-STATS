@@ -9,12 +9,19 @@
 
 Module.register("MMM-AOE2-STATS", {
 	defaults: {
-		players: ['912329','196240', '2118083', '878854',  ], //Players that will be shown in the given order default Fabsch user ID
-		updateInterval: 20*60*1000,
-		retryDelay: 20*60*1000
+		players: ['912329','2118083', '878854' , '1799025', '2534400', '196240' ], //Players that will be shown in the given order default Fabsch user ID
+		updateInterval: 10,
+		showTeamStats: true,
+		showProgressArrow: false,
+		showGameWins: false,
+		showGameLosses: false,
+		showTotalGames: false,
+		showEloDiff: false,
+		showWinPercentage: true,
+		retryDelay: this.updateInterval
 	},
 
-	requiresVersion: "2.1.0", // Required version of MagicMirror
+	//requiresVersion: "2.1.0", // Required version of MagicMirror
 
 	start: function() {
 		Log.log("Starting module FN: " + this.name);
@@ -31,9 +38,15 @@ Module.register("MMM-AOE2-STATS", {
 		// Schedule update timer.
 		this.getData();
 		
+		if(this.config.updateInterval < 1){
+			console.log("updateInterval < 1 is not allowed");
+			this.config.updateInterval =  1;
+		}
+		
 		setInterval(function() {
+			self.getData();
 			self.updateDom();
-		}, this.config.updateInterval);
+		}, (this.config.updateInterval*60*1000));
 	},
 
 	/*
@@ -44,13 +57,13 @@ Module.register("MMM-AOE2-STATS", {
 	 */
 	getData: function() {
 		var self = this;
-		var retry = true;
+		var retry = false;
 		
 		if (retry) {
 			self.scheduleUpdate((self.loaded) ? -1 : self.config.retryDelay);
 		}
 		
-		this.sendSocketNotification('MMM-AOE2-STATS-REQUEST', this.config.players);
+		this.sendSocketNotification('MMM-AOE2-STATS-REQUEST', {id:this.config.players, showTeam: this.config.showTeamStats});
 	},
 	
 
@@ -90,6 +103,21 @@ Module.register("MMM-AOE2-STATS", {
 			this.createTableCell(headerRow, "Ranking",true, 'ranking-header');		//this.translate('SCORE'), this.config.showScore, 'score-header');
 			this.createTableCell(headerRow, "ELO",true, 'elo-header');			//this.translate('MATCHES_PLAYED'), this.config.showMatchesPlayed, 'matches-played-header');
 			this.createTableCell(headerRow, "Highest ELO",true, 'helo-header');	//this.translate('KILLS'), this.config.showKills, 'kills-header');
+			if(this.config.showWinPercentage){
+				this.createTableCell(headerRow, "Win rate [%]",true, 'win-percent');	
+			}
+			if(this.config.showTotalGames){
+				this.createTableCell(headerRow, "Total games:",true, 'game-wins');
+			}
+			if(this.config.showGameLosses){
+				this.createTableCell(headerRow, "Losses:",true, 'game-losses');
+			}
+			if(this.config.showGameWins){
+				this.createTableCell(headerRow, "Total Games",true, 'game-total');
+			}
+			if(this.config.showEloDiff){
+				this.createTableCell(headerRow, "Change",true, 'elo-change');
+			}
 			
 			wrapper.appendChild(headerRow);
 
@@ -103,6 +131,21 @@ Module.register("MMM-AOE2-STATS", {
 				this.createNumberTableCell(row, stat.ranking, true, 'ranking');
 				this.createNumberTableCell(row, stat.elo, true, 'ELO');
 				this.createNumberTableCell(row, stat.high_elo, true, 'Max. ELO');
+				if(this.config.showWinPercentage){
+					this.createNumberTableCell(row, stat.percent_wins, true, 'Win rate');
+				}
+				if(this.config.showTotalGames){
+					this.createNumberTableCell(row, stat.total_games, true, 'Win rate');
+				}
+				if(this.config.showGameWins){
+					this.createNumberTableCell(row, stat.won_games, true, 'Win rate');
+				}
+				if(this.config.showGameLosses){
+					this.createNumberTableCell(row, stat.loose_games, true, 'Win rate');
+				}
+				if(this.config.showEloDiff){
+					this.createTableCell(row, "Not avaiable", true, 'Win rate');
+				}
 
 				wrapper.appendChild(row);
 			}
