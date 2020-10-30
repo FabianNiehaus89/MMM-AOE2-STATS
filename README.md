@@ -10,19 +10,19 @@ It will display the aoe2.net leadder stats for players id's.
 To use this module, add the following configuration block to the modules array in the `config/config.js` file:
 ```js
 var config = {
-	{
-		module: "MMM-AOE2-STATS",
-		position: "bottom_right",
-		config: {
-				players: ['912329'],
-				updateInterval: 20,
-				showTeamStats: true,
-				showGameWins: false,
-				showGameLosses: false,
-				showTotalGames: true,
-				showWinPercentage: true
-		}
+{
+	module: "MMM-AOE2-STATS",
+	position: "bottom_right",
+	config: {
+		players: ['912329'],
+		updateInterval: 20,
+		showTeamStats: true,
+		showGameWins: false,
+		showGameLosses: false,
+		showTotalGames: true,
+		showWinPercentage: true
 	}
+}
 }
 ```
 
