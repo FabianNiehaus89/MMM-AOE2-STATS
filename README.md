@@ -10,7 +10,7 @@ It will display the aoe2.net leadder stats for players id's.
 ## Installation
 
 1. Clone this repo into `~/MagicMirror/modules` directory.
-2. Go to `~/MagicMirror/modules/MMM-NetworkConnection` directory and do `npm install`
+2. Go to `~/MagicMirror/modules/MMM-AOE2-STATS` directory and do `npm install`
 
 ## Using the module
 
