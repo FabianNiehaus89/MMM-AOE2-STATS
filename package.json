@@ -1,6 +1,6 @@
 {
 	"name": "MMM-AOE2-STATS",
-	"version": "0.1.0",
+	"version": "0.0.2",
 	"description": "A MagicMirror2 module that displys Age of Empires Player stats from Aoe2.net",
 	"keywords": [
 		"magic mirror",
