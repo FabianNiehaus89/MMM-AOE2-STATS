@@ -5,7 +5,7 @@ It will display the aoe2.net leadder stats for players id's.
 
 # MMM-AOE2-STATS PREVIEW PICTURE
 
-![Example Scheduling](.github/pictures/preview.png)
+![Example Picture](.github/pictures/preview.png)
 
 ## Using the module
 
