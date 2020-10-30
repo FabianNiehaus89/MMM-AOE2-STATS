@@ -3,9 +3,9 @@
 This is a module for the [MagicMirror²](https://github.com/MichMich/MagicMirror/).
 It will display the aoe2.net leadder stats for players id's.
 
-# MMM-AOE2-STATS PREVIEW PICTURE
+# PREVIEW PICTURE
 
-![Example Picture](.github/pictures/preview.png)
+![](pictures/preview.PNG)
 
 ## Using the module
 
