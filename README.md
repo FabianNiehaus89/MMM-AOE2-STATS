@@ -5,7 +5,11 @@ It will display the aoe2.net leadder stats for players id's.
 
 # PREVIEW PICTURE
 
+RM 1v1:
 ![](pictures/preview.PNG)
+
+RM Team:
+![](pictures/preview_team.PNG)
 
 ## Installation
 
@@ -37,7 +41,7 @@ var config = {
 
 | Option               | Description
 |----------------------|-----------
-| `player`             | *Required* Player ID to display.
+| `players`            | *Required* Player ID to display.
 | `updateInterval`     | *Optional* Update time <br><br>**Type:** `int`(minute) <br>Default 20  (= 20 minute).
 | `showTeamStats`      | *Optional* If <b>true</b> module will display the RM-Team stats otherwise the 1v1 stats if available.
 | `showGameWins`       | *Optional* If <b>true</b> module shows how many games player has won.
